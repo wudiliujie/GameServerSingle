@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- r:代表是资源结构 -->
+<pack>
+  <p n="ActorResponse" d="Actor回复信息" pt="IResponse">
+  </p>
+  <p n="ResponseMessage" d="回复信息" pt="IResponse">
+  </p>
+  <s n="ObjectInfo" d="对象信息">
+    <p i="1" n="Key" t="long" d="key" />
+    <p i="2" n="InstanceId" t="long" d="实例编号" />
+    <p i="3" n="Address" t="string" d="地址" />
+  </s>
+  <p n="ObjectAddRequest" d="添加对象" pt="IRequest">
+    <p i="1" n="Item" t="ObjectInfo" d="对象" />
+  </p>
+  <p n="ObjectAddResponse" d="添加对象" pt="IResponse">
+  </p>
+  <p n="ObjectRemoveRequest" d="删除对象" pt="IRequest">
+    <p i="1" n="Key" t="long" d="对象编号" />
+  </p>
+  <p n="ObjectRemoveResponse" d="删除对象" pt="IResponse">
+  </p>
+  <p n="ObjectLockRequest" d="锁定对象" pt="IRequest">
+    <p i="1" n="Item" t="ObjectInfo" d="对象" />
+    <p i="2" n="Time" t="int" d="实例ID" />
+  </p>
+  <p n="ObjectLockResponse" d="锁定对象" pt="IResponse">
+  </p>
+  <p n="ObjectUnLockRequest" d="取消锁定对象" pt="IRequest">
+    <p i="1" n="Key" t="long" d="对象编号" />
+    <p i="2" n="OldInstanceId" t="long" d="实例ID" />
+    <p i="3" n="InstanceId" t="long" d="实例ID" />
+  </p>
+  <p n="ObjectUnLockResponse" d="取消锁定对象" pt="IResponse">
+  </p>
+  <p n="ObjectGetRequest" d="获取对象" pt="IRequest">
+    <p i="1" n="Key" t="long" d="对象编号" />
+  </p>
+  <p n="ObjectGetResponse" d="获取对象" pt="IResponse">
+    <p i="1" n="Item" t="ObjectInfo" d="对象" />
+  </p>
+  <s n="ErrInfo" d="错误信息" r="1">
+    <p i="1" n="i" t="int" d="编号" />
+    <p i="2" n="n" t="string" d="名字" />
+    <p i="3" n="m" t="string" d="值" />
+  </s>
+  <s n="ErrFile" d="错误信息" r="1">
+    <p i="1" n="data" t="ErrInfo" a="1" d="data" />
+  </s>
+  <s n="AttrInt" d="int属性" db="1">
+    <p i="1" n="K" t="int" d="key" />
+    <p i="2" n="V" t="long" d="值" />
+  </s>
+  <s n="AttrStr" d="str属性" db="1">
+    <p i="1" n="K" t="int" d="key" />
+    <p i="2" n="V" t="string" d="值" />
+  </s>
+  <s n="RoleDbInfo" d="角色数据存储信息" db="1">
+    <p i="1" n="RoleId" t="int" d="角色编号" />
+    <p i="2" n="AttrInts" t="AttrInt" a="1" d="角色int属性" />
+    <p i="3" n="AttrStrs" t="AttrStr" a="1" d="角色int属性" />
+  </s>
+  <p n="C2WEB_UserLogin" d="用户登录">
+    <p i="1" n="UserName" t="string" d="帐号" />
+    <p i="2" n="UserPass" t="string" d="密码" />
+  </p>
+  <p n="WEB2C_UserLogin" d="用户登录返回">
+    <p i="1" n="tag" t="int" d="结果" />
+    <p i="2" n="AccountId" t="int" d="帐号ID" />
+    <p i="3" n="IsCreateRole" t="bool" d="是否创建角色" />
+    <p i="4" n="Timestamp" t="long" d="时间戳" />
+    <p i="5" n="Ip" t="string" d="ip" />
+    <p i="6" n="Port" t="int" d="端口" />
+    <p i="7" n="Sign" t="string" d="签名" />
+  </p>
+  <p n="C2WEB_CreateRole" d="创建角色">
+    <p i="1" n="AccountId" t="int" d="帐号Id" />
+    <p i="2" n="RoleName" t="string" d="角色名称" />
+    <p i="3" n="Timestamp" t="long" d="时间戳" />
+    <p i="4" n="Sign" t="string" d="签名" />
+  </p>
+  <p n="WEB2C_CreateRole" d="用户登录返回">
+    <p i="1" n="tag" t="int" d="结果" />
+    <p i="2" n="AccountId" t="int" d="帐号ID" />
+    <p i="3" n="IsCreateRole" t="bool" d="是否创建角色" />
+    <p i="4" n="Timestamp" t="long" d="时间戳" />
+    <p i="5" n="Ip" t="string" d="ip" />
+    <p i="6" n="Port" t="int" d="端口" />
+    <p i="7" n="sign" t="string" d="签名" />
+  </p>
+  <p n="C2S_UserLogin" d="用户登录" pt="IRequest">
+    <p i="1" n="AccountId" t="int" d="帐号ID" />
+    <p i="2" n="Timestamp" t="long" d="时间戳" />
+    <p i="3" n="sign" t="string" d="签名" />
+  </p>
+  <p n="S2C_UserLogin" d="用户登录返回" pt="IResponse">
+    <p i="1" n="UnitId" t="long" d="UnitID" />
+  </p>
+  <p n="SaveRoleInfo" d="读取用户信息" s="S" t="D">
+    <p i="1" n="RoleId" t="int" d="角色编号" />
+    <p i="2" n="RoleData" t="bytes" d="角色数据" />
+  </p>
+  <p n="S2C_RoleInfo" d="通知用户信息发生变化">
+    <p i="1" n="RoleId" t="int" d="角色编号" />
+    <p i="2" n="AttrInts" t="AttrInt" a="1" d="角色int属性" />
+    <p i="3" n="AttrStrs" t="AttrStr" a="1" d="角色str属性" />
+  </p>
+  <p n="ServerHeart" d="服务器心跳" s="S" t="WEB">
+    <p i="1" n="ServerId" t="int" d="服务器编号" />
+    <p i="2" n="ServerName" t="string" d="服务器名称" />
+    <p i="3" n="Ip" t="string" d="服务器IP" />
+    <p i="4" n="Port" t="int" d="服务器端口" />
+    <p i="5" n="Online" t="int" d="在线人数" />
+  </p>
+  <s n="ServerInfo" d="服务器信息">
+    <p i="1" n="ServerId" t="int" d="服务器编号" />
+    <p i="2" n="ServerType" t="int" d="服务器类型" />
+    <p i="3" n="NetInnerIp" t="string" d="内部Ip" />
+    <p i="4" n="NetInnerPort" t="int" d="内部端口" />
+  </s>
+  <p n="S2L_RegisterServer" d="注册服务器" pt="IRequest">
+    <p i="1" n="Info" t="ServerInfo" d="服务器信息" />
+  </p>
+  <p n="G2M_CreateUnit" d="通知地图服务器创建unit" pt="IRequest">
+    <p i="1" n="AccountId" t="int" d="服务器信息" />
+    <p i="2" n="GateSessionId" t="long" d="网关sessionid" />
+  </p>
+  <p n="M2G_CreateUnit" d="通知地图服务器创建unit" pt="IResponse">
+    <p i="1" n="UnitId" t="int64" d="unit编号" />
+  </p>
+  <p n="G2L_GetMapAddress" d="获取指定类型map 的地址" pt="IRequest">
+    <p i="1" n="MapType" t="int" d="map类型" />
+  </p>
+  <p n="L2G_GetMapAddress" d="通知地图服务器创建unit" pt="IResponse">
+    <p i="1" n="Address" t="string" d="地址" />
+  </p>
+  <p n="C2M_EnterRoom" d="用户进入房间" pt="IActorRequest">
+    <p i="1" n="RoomType" t="int" d="房间类型" />
+    <p i="2" n="RoomId" t="int" d="房间编号" />
+  </p>
+  <p n="M2C_EnterRoom" d="用户进入房间" pt="IActorResponse">
+    <p i="1" n="RoomId" t="int" d="房间编号" />
+  </p>
+  <p n="G2M_UnitDispose" d="釋放unit" pt="IActorRequest">
+  </p>
+  <ids>
+    <id i="1" n="ResponseMessage" />
+    <id i="2" n="C2WEB_UserLogin" />
+    <id i="3" n="WEB2C_UserLogin" />
+    <id i="4" n="C2WEB_CreateRole" />
+    <id i="5" n="WEB2C_CreateRole" />
+    <id i="6" n="C2S_UserLogin" />
+    <id i="7" n="S2C_UserLogin" />
+    <id i="8" n="SaveRoleInfo" />
+    <id i="9" n="S2C_RoleInfo" />
+    <id i="10" n="ServerHeart" />
+    <id i="11" n="S2L_RegisterServer" />
+    <id i="12" n="G2M_CreateUnit" />
+    <id i="13" n="M2G_CreateUnit" />
+    <id i="14" n="G2L_GetMapAddress" />
+    <id i="15" n="L2G_GetMapAddress" />
+    <id i="16" n="C2S_EnterRoom" />
+    <id i="17" n="S2C_EnterRoom" />
+    <id i="18" n="C2M_EnterRoom" />
+    <id i="19" n="M2C_EnterRoom" />
+    <id i="20" n="ObjectAddRequest" />
+    <id i="21" n="ObjectAddResponse" />
+    <id i="22" n="ObjectRemoveRequest" />
+    <id i="23" n="ObjectRemoveResponse" />
+    <id i="24" n="ObjectLockRequest" />
+    <id i="25" n="ObjectLockResponse" />
+    <id i="26" n="ObjectUnLockRequest" />
+    <id i="27" n="ObjectUnLockResponse" />
+    <id i="28" n="ObjectGetRequest" />
+    <id i="29" n="ObjectGetResponse" />
+    <id i="30" n="ActorResponse" />
+    <id i="31" n="G2M_UnitDispose" />
+  </ids>
+</pack>

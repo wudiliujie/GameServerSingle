@@ -1,0 +1,45 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <AssemblyName>Hotfix</AssemblyName>
+    <RootNamespace>ETHotfix</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>TRACE;DEBUG;NETCOREAPP2_0;SERVER</DefineConstants>
+    <OutputPath>..\Bin\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DefineConstants>TRACE;RELEASE;NETCOREAPP2_0;SERVER</DefineConstants>
+    <OutputPath>..\..\Bin\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Other\**" />
+    <EmbeddedResource Remove="Other\**" />
+    <None Remove="Other\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Fishs\Handler\C2G_LoginGateHandler.cs" />
+    <Compile Remove="Handler\Actor_TestHandler.cs" />
+    <Compile Remove="Handler\Actor_TestRequestHandler.cs" />
+    <Compile Remove="Handler\Actor_TransferHandler.cs" />
+    <Compile Remove="Handler\C2M_ReloadHandler.cs" />
+    <Compile Remove="Handler\C2R_PingHandler.cs" />
+    <Compile Remove="Handler\G2G_LockReleaseRequestHandler.cs" />
+    <Compile Remove="Handler\G2G_LockRequestHandler.cs" />
+    <Compile Remove="Handler\M2A_ReloadHandler.cs" />
+    <Compile Remove="Handler\M2M_TrasferUnitRequest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Model\Server.Model.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Handler\" />
+    <Folder Include="Module\Http\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Dapper" Version="1.50.5" />
+  </ItemGroup>
+</Project>

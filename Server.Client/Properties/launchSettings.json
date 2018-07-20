@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "Server.Client": {
+      "commandName": "Project",
+      "commandLineArgs": "10001",
+      "workingDirectory": "../bin/Client"
+    }
+  }
+}
