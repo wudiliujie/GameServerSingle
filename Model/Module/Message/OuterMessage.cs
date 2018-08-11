@@ -1,8 +1,6 @@
 using ProtoBuf;
 using ETModel;
 using System.Collections.Generic;
-using MongoDB.Bson.Serialization.Attributes;
-using MongoDB.Bson.Serialization.Options;
 namespace ETModel
 {
 	//[Message(OuterOpcode.Actor_Test)]

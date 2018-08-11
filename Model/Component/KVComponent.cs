@@ -1,6 +1,4 @@
 ﻿using System.Collections.Generic;
-using MongoDB.Bson.Serialization.Attributes;
-
 namespace ETModel
 {
 	/// <summary>
@@ -8,7 +6,7 @@ namespace ETModel
 	/// </summary>
 	public class KVComponent: Component
 	{
-		[BsonElement]
+
 		private readonly Dictionary<string, object> kv = new Dictionary<string, object>();
 
 		public void Add(string key, object value)

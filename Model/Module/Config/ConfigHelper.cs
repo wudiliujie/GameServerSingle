@@ -18,10 +18,5 @@ namespace ETModel
 				throw new Exception($"load config file fail, path: {path} {e}");
 			}
 		}
-
-		public static T ToObject<T>(string str)
-		{
-			return MongoHelper.FromJson<T>(str);
-		}
 	}
 }

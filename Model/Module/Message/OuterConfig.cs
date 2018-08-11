@@ -1,9 +1,6 @@
 ﻿using System.Net;
-using MongoDB.Bson.Serialization.Attributes;
-
 namespace ETModel
 {
-	[BsonIgnoreExtraElements]
 	public class OuterConfig: AConfigComponent
 	{
 		public string Host { get; set; }
@@ -11,10 +8,9 @@ namespace ETModel
 
 		public string Host2 { get; set; }
 
-		[BsonIgnore]
+
 		private IPEndPoint ipEndPoint;
 
-		[BsonIgnore]
 		private IPEndPoint ipEndPoint2;
 
 		public override void EndInit()
@@ -30,7 +26,6 @@ namespace ETModel
 			this.ipEndPoint2 = NetworkHelper.ToIPEndPoint(this.Host2, this.Port);
 		}
 
-		[BsonIgnore]
 		public IPEndPoint IPEndPoint
 		{
 			get
@@ -39,7 +34,7 @@ namespace ETModel
 			}
 		}
 
-		[BsonIgnore]
+
 		public IPEndPoint IPEndPoint2
 		{
 			get

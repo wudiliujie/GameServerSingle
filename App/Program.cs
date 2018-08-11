@@ -4,7 +4,6 @@ using System.Threading;
 using ETModel;
 using Model.Fishs.Components;
 using Model.Module.MySql;
-using MongoDB.Bson.Serialization;
 using NLog;
 using ETHotfix;
 using System.Threading.Tasks;
@@ -64,7 +63,7 @@ namespace App
                         Game.Scene.AddComponent<NetInnerComponent, IPEndPoint>(innerConfig.IPEndPoint);
                         Game.Scene.AddComponent<NetOuterComponent, IPEndPoint>(outerConfig.IPEndPoint);
                         Game.Scene.AddComponent<LocationProxyComponent>();
-                        Game.Scene.AddComponent<RealmGateAddressComponent>();
+
                         break;
                     case AppType.Gate:         
                         Game.Scene.AddComponent<ActorMessageDispatherComponent>();
@@ -72,7 +71,7 @@ namespace App
                         Game.Scene.AddComponent<NetOuterComponent, IPEndPoint>(outerConfig.IPEndPoint);
                         Game.Scene.AddComponent<LocationProxyComponent>();
                         Game.Scene.AddComponent<ActorMessageSenderComponent>();
-                        Game.Scene.AddComponent<GateSessionKeyComponent>();
+         
                         break;
                     case AppType.Location:
                         Game.Scene.AddComponent<NetInnerComponent, IPEndPoint>(innerConfig.IPEndPoint);
@@ -80,29 +79,25 @@ namespace App
                         break;
                     case AppType.Map:
                         Game.Scene.AddComponent<NetInnerComponent, IPEndPoint>(innerConfig.IPEndPoint);
-                        Game.Scene.AddComponent<UnitComponent>();
+
                         Game.Scene.AddComponent<LocationProxyComponent>();
                         Game.Scene.AddComponent<ActorMessageSenderComponent>();
                         Game.Scene.AddComponent<ActorMessageDispatherComponent>();
-                        Game.Scene.AddComponent<ServerFrameComponent>();
+
                         break;
                     case AppType.AllServer:
                         Game.Scene.AddComponent<ActorMessageSenderComponent>();
                         //Game.Scene.AddComponent<PlayerComponent>();
-                        Game.Scene.AddComponent<UnitComponent>();
-                        Game.Scene.AddComponent<DBComponent>();
-                        Game.Scene.AddComponent<DBProxyComponent>();
-                        Game.Scene.AddComponent<DBCacheComponent>();
+
                         Game.Scene.AddComponent<LocationComponent>();
                         Game.Scene.AddComponent<ActorMessageDispatherComponent>();
                         Game.Scene.AddComponent<NetInnerComponent, IPEndPoint>(innerConfig.IPEndPoint);
                         Game.Scene.AddComponent<NetOuterComponent, IPEndPoint>(outerConfig.IPEndPoint);
                         Game.Scene.AddComponent<LocationProxyComponent>();
                         Game.Scene.AddComponent<AppManagerComponent>();
-                        Game.Scene.AddComponent<RealmGateAddressComponent>();
-                        Game.Scene.AddComponent<GateSessionKeyComponent>();
+
                         Game.Scene.AddComponent<ConfigComponent>();
-                        Game.Scene.AddComponent<ServerFrameComponent>();
+
                         Game.Scene.AddComponent<UnitManageComponent>();
                         Game.Scene.AddComponent<SqlComponent, string>(dbConfig.ConnectionString);
                         // Game.Scene.AddComponent<HttpComponent>();

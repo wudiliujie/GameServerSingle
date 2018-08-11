@@ -115,7 +115,7 @@ namespace ETHotfix
 		{
 			if (!self.ActorMessageHandlers.TryGetValue(actorRequest.GetType(), out IMActorHandler handler))
 			{
-				throw new Exception($"not found message handler: {MongoHelper.ToJson(actorRequest)}");
+				throw new Exception($"not found message handler: {Newtonsoft.Json.JsonConvert.SerializeObject(actorRequest)}");
 			}
 
 			await handler.Handle(session, entity, actorRequest);

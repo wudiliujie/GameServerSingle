@@ -42,7 +42,6 @@
 		public int code;
 		public bool status;
 		public string msg = "";
-		[MongoDB.Bson.Serialization.Attributes.BsonIgnoreIfNull]
 		public object data;
 	}
 

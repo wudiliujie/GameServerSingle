@@ -1,18 +1,12 @@
 ﻿using System;
-using MongoDB.Bson.Serialization.Attributes;
 
 namespace ETModel
-{
-	[BsonIgnoreExtraElements]
+{	
 	public abstract class Component : Object, IDisposable, IComponentSerialize
-	{
-		[BsonIgnore]
+	{	
 		public long InstanceId { get; protected set; }
-
-		[BsonIgnore]
+		
 		private bool isFromPool;
-
-		[BsonIgnore]
 		public bool IsFromPool
 		{
 			get
@@ -37,7 +31,7 @@ namespace ETModel
 			}
 		}
 
-		[BsonIgnore]
+
 		public bool IsDisposed
 		{
 			get
@@ -46,7 +40,7 @@ namespace ETModel
 			}
 		}
 		
-		[BsonIgnore]
+
 		public Component Parent { get; set; }
 
 		public T GetParent<T>() where T : Component
@@ -54,7 +48,6 @@ namespace ETModel
 			return this.Parent as T;
 		}
 
-		[BsonIgnore]
 		public Entity Entity
 		{
 			get

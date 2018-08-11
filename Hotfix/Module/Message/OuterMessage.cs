@@ -1,7 +1,6 @@
 using ProtoBuf;
 using ETModel;
 using System.Collections.Generic;
-using MongoDB.Bson.Serialization.Attributes;
 namespace ETHotfix
 {
 	//[Message(OuterOpcode.Actor_Test)]

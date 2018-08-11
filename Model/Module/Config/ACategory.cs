@@ -35,8 +35,8 @@ namespace ETModel
 					{
 						continue;
 					}
-					T t = ConfigHelper.ToObject<T>(str2);
-					this.dict.Add(t.Id, t);
+					//T t = ConfigHelper.ToObject<T>(str2);
+					//this.dict.Add(t.Id, t);
 				}
 				catch (Exception e)
 				{

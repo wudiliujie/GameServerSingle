@@ -1,5 +1,4 @@
 ﻿using ETModel;
-using MongoDB.Bson.Serialization.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Numerics;
@@ -27,7 +26,6 @@ namespace Model.Fishs.Entitys
     {
         public UnitType UnitType { get; private set; }
 
-        [BsonIgnore]
         public Vector3 Position { get; set; }
 
         public void Awake(UnitType unitType)

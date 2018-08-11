@@ -251,7 +251,7 @@ namespace ETModel
 						}
 						else
 						{
-							sw.Write(JsonHelper.ToJson(result));
+							sw.Write(Newtonsoft.Json.JsonConvert.SerializeObject(result));
 						}
 					}
 				}
@@ -297,7 +297,7 @@ namespace ETModel
 							}
 							else if (item.ParameterType.IsClass && item.ParameterType != typeof(string) && !string.IsNullOrEmpty(postbody))
 							{
-								object entity = JsonHelper.FromJson(item.ParameterType, postbody);
+                                object entity = null;// JsonHelper.FromJson(item.ParameterType, postbody);
 								args[i] = entity;
 							}
 

@@ -1,8 +1,6 @@
-﻿using MongoDB.Bson.Serialization.Attributes;
-
-namespace ETModel
+﻿namespace ETModel
 {
-	[BsonIgnoreExtraElements]
+
 	public class HttpConfig: AConfigComponent
 	{
 		public string Url { get; set; } = "";

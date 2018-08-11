@@ -1,18 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using MongoDB.Bson.Serialization.Attributes;
+
 
 namespace ETModel
 {
-	[BsonIgnoreExtraElements]
+
 	public class Entity : ComponentWithId
 	{
-		[BsonElement]
-		[BsonIgnoreIfNull]
+
 		private HashSet<Component> components;
 
-		[BsonIgnore]
+
 		private Dictionary<Type, Component> componentDict;
 
 		public Entity()

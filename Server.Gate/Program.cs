@@ -22,7 +22,7 @@ namespace Server.Gate
             SynchronizationContext.SetSynchronizationContext(OneThreadSynchronizationContext.Instance);
             try
             {
-                int AppId = Convert.ToInt32(args[0]);
+                int AppId = 2;
                 string configFile = "../../Config/StartConfig/LocalAllServer.json";
                 if (args.Length >= 2)
                 {

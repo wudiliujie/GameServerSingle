@@ -6,17 +6,17 @@ namespace ETModel
     {
         public static string ToJson(object obj)
         {
-            return MongoHelper.ToJson(obj);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(obj);
         }
 
         public static T FromJson<T>(string str)
         {
-            return MongoHelper.FromJson<T>(str);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<T>(str);
         }
 
         public static object FromJson(Type type, string str)
         {
-            return MongoHelper.FromJson(type, str);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject(str, type);
         }
 
         public static T Clone<T>(T t)
